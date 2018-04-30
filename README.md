@@ -29,12 +29,6 @@ Note: for the API keys, a free developer-tier account can be created here: https
 * Auth: passport
 * Client: Vue 2
 
-## Testing
-
-Client: [no tests implemented yet] Configured Karma for browser-testing and Mocha as a test runner. Assertions provided via Chai. Spies, stubs, and mocks via sinon. 
-
-Server: code is covered by integration tests, facilitated by supertest.
-
 ## Tooling
 
 * Prettier: code formatting
@@ -44,6 +38,24 @@ Server: code is covered by integration tests, facilitated by supertest.
 * webpack: bundler
 * husky: git hooks
 
-## Internationalization
+## Other
+
+### Testing
+
+Client: [no tests implemented yet] Configured Karma for browser-testing and Mocha as a test runner. Assertions provided via Chai. Spies, stubs, and mocks via sinon.
+
+Server: code is covered by integration tests, facilitated by supertest.
+
+### Internationalization
 
 The build is setup for internationalization. Translations can be placed in the `lang/` directory, and follow the precedent set by `lang/es-es.js`. Additional language can then be added to the `./i18n.conf.js` file.
+
+## VSCode
+
+A couple configurations are provided in `.vscode/launch.json` to run server unit tests and the development server.
+
+## Webpack 4
+
+Webpack has been configured to use tree-shaking and module concatenation. These should help lead to the smallest possible bundle size and fastest initialization on the client.
+
+`npm run analyze` will build a production bundle and show a visual display of the bundled code.
