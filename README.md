@@ -21,6 +21,8 @@ The following DB should be available (a connection string can be supplied via a 
 
 You should be taken to the login screen where you can register and then sign-in.
 
+Note: for the API keys, a free developer-tier account can be created here: https://developer.edamam.com/.
+
 ## Frameworks
 
 * Server: Express

@@ -9,7 +9,7 @@
     "prod": "webpack --config webpack.prod.js",
     "start": "node ./tools/dev_server.js",
     "test:chrome": "karma start --config karma.conf.js --browsers=Chrome",
-    "test:server": "mocha ./tests/server/**/*-test.js"
+    "test:server": "mocha ./tests/server/**/*-test.js --watch"
   },
   "lint-staged": {
     "src/**/*.(js|vue)": [

@@ -74,7 +74,7 @@ module.exports = Object.keys(languages).map(lang => ({
       minify: true
     }),
     new I18nPlugin(languages[lang]),
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin(['dist']),
     new VueLoaderPlugin()
   ]
 }))
