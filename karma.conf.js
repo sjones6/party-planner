@@ -12,10 +12,10 @@ module.exports = config => config.set({
   frameworks: ['mocha', 'sinon-chai'],
   reporters: ['spec', 'coverage'],
   files: [
-    'tests/index.js'
+    'tests/client/index.js'
   ],
   preprocessors: {
-    'tests/index.js': ['webpack', 'sourcemap']
+    'tests/client/index.js': ['webpack', 'sourcemap']
   },
   webpack: webpackConfig,
   webpackMiddleware: {

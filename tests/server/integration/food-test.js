@@ -4,14 +4,13 @@ const faker = require('faker')
 const app = require('server')
 
 describe('/food', () => {
-
-  let cookies, id;
+  let cookies, id
   before(() => {
     return request(app)
       .post('/user')
       .send({
         email: 'tester@test.com',
-        password: '1234567'
+        password: '1234567',
       })
       .then(res => {
         id = res.body.id
@@ -19,7 +18,7 @@ describe('/food', () => {
           .post('/user/login')
           .send({
             email: 'tester@test.com',
-            password: '1234567'
+            password: '1234567',
           })
       })
       .then(res => {
@@ -28,12 +27,10 @@ describe('/food', () => {
   })
 
   after(() => {
-    return request(app)
-      .delete(`/user/${id}`)
+    return request(app).delete(`/user/${id}`)
   })
 
   describe('POST: food/', () => {
-
     it('should require authentication', () => {
       return request(app)
         .post('/food')
@@ -44,35 +41,33 @@ describe('/food', () => {
       return request(app)
         .post('/food')
         .send({
-          food: faker.lorem.words(2)
+          food: faker.lorem.words(2),
         })
         .set('Cookie', cookies)
         .expect(200)
-        .then(res => {
-
-        })
+        .then(res => {})
     })
   })
   describe('PUT: food/:food', () => {
     let id
     beforeEach(() => {
       return request(app)
-      .post('/food')
-      .send({
-        food: faker.lorem.words(2)
-      })
-      .set('Cookie', cookies)
-      .then(res => {
-        id = res.body.id
-      })
+        .post('/food')
+        .send({
+          food: faker.lorem.words(2),
+        })
+        .set('Cookie', cookies)
+        .then(res => {
+          id = res.body.id
+        })
     })
 
     it('should allow editing the text', () => {
-      const newFood = faker.lorem.words(3);
+      const newFood = faker.lorem.words(3)
       return request(app)
         .put(`/food/${id}`)
         .send({
-          food: newFood
+          food: newFood,
         })
         .set('Cookie', cookies)
         .expect(200)
@@ -90,17 +85,16 @@ describe('/food', () => {
     })
   })
   describe('GET: food/:food', () => {
-
     let id, food
     beforeEach(() => {
       food = 'pizza'
       return request(app)
-      .post('/food')
-      .send({ food })
-      .set('Cookie', cookies)
-      .then(res => {
-        id = res.body.id
-      })
+        .post('/food')
+        .send({ food })
+        .set('Cookie', cookies)
+        .then(res => {
+          id = res.body.id
+        })
     })
 
     it('should require authentication', () => {
@@ -129,17 +123,16 @@ describe('/food', () => {
   })
 
   describe('GET: food', () => {
-
     let id, food
     beforeEach(() => {
       food = faker.lorem.words(2)
       return request(app)
-      .post('/food')
-      .send({ food })
-      .set('Cookie', cookies)
-      .then(res => {
-        id = res.body.id
-      })
+        .post('/food')
+        .send({ food })
+        .set('Cookie', cookies)
+        .then(res => {
+          id = res.body.id
+        })
     })
 
     it('should retrieve the foods index', () => {
@@ -154,20 +147,18 @@ describe('/food', () => {
     })
   })
 
-
   describe('DEL: food/:food', () => {
-
     let id
     beforeEach(() => {
       return request(app)
-      .post('/food')
-      .send({ 
-        food: faker.lorem.words(2)
-      })
-      .set('Cookie', cookies)
-      .then(res => {
-        id = res.body.id
-      })
+        .post('/food')
+        .send({
+          food: faker.lorem.words(2),
+        })
+        .set('Cookie', cookies)
+        .then(res => {
+          id = res.body.id
+        })
     })
 
     it('should delete the food', () => {
