@@ -3,7 +3,3 @@ instrumentation:
     extensions:
         - .js
     default-excludes: true
-    excludes: [
-      './src/js/main.js',
-      './src/js/routes.js'
-    ]
