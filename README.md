@@ -10,6 +10,7 @@ The following should be installed and available on the path:
 The following DB should be available (a connection string can be supplied via a environment variables):
 
 * mongodb
+* https://developer.edamam.com/ API application ID and key
 
 ## Setup
 
