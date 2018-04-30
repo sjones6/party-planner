@@ -51,11 +51,11 @@ Server: code is covered by integration tests, facilitated by supertest.
 
 The build is setup for internationalization. Translations can be placed in the `lang/` directory, and follow the precedent set by `lang/es-es.js`. Additional language can then be added to the `./i18n.conf.js` file.
 
-## VSCode
+### VSCode
 
 A couple configurations are provided in `.vscode/launch.json` to run server unit tests and the development server.
 
-## Webpack 4
+### Webpack 4
 
 Webpack has been configured to use tree-shaking and module concatenation. These should help lead to the smallest possible bundle size and fastest initialization on the client.
 
