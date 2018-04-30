@@ -24,13 +24,14 @@ You should be taken to the login screen where you can register and then sign-in.
 ## Frameworks
 
 * Server: Express
+* Auth: passport
 * Client: Vue 2
 
 ## Testing
 
-Testing uses Karma for browser-testing and Mocha as a test runner. Assertions provided via Chai. Spies, stubs, and mocks via sinon.
+Client: [no tests implemented yet] Configured Karma for browser-testing and Mocha as a test runner. Assertions provided via Chai. Spies, stubs, and mocks via sinon. 
 
-Server code is covered by integration tests, facilitated by supertest.
+Server: code is covered by integration tests, facilitated by supertest.
 
 ## Tooling
 
