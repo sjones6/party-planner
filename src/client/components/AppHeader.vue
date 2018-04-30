@@ -4,6 +4,7 @@
       <h1>{{ str.partyPlanner }} </h1>
     </div>
     <div class="right">
+        <h3 class="inline">{{ $store.getters.user.email }}</h3>
         <button @click="logout">{{ str.logout }}</button>
     </div>
   </header>
@@ -51,6 +52,10 @@ export default {
 
   & h1 {
     margin: 0;
+  }
+
+  & .inline {
+    display: inline-block;
   }
 }
 </style>

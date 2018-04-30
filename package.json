@@ -81,6 +81,7 @@
     "axios": "^0.17.1",
     "body-parser": "^1.18.2",
     "cookie-parser": "~1.4.3",
+    "common": "file:./src/common",
     "debug": "~2.2.0",
     "dotenv": "^5.0.1",
     "express": "~4.14.0",

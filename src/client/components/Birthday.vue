@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import birthdayValidation from 'common/validations/birthday.js'
 import AppHeader from './AppHeader.vue'
 import ValidationErrors from './ValidationErrors.vue'
 
@@ -40,10 +41,9 @@ export default {
   },
   methods: {
     save() {
-      if (!this.birthday) {
-        this.errors = {
-          [__('Whoops!')]: [__('You must supply a birthday!')],
-        }
+      const errors = birthdayValidation(this.birthday)
+      if (errors) {
+        this.errors = errors
       } else {
         this.$ajax
           .put('/user', {

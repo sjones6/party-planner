@@ -7,9 +7,8 @@
         <router-link :to='{name: "food"}'>{{ str.menu }}</router-link>
         <validation-errors :errors="errors"></validation-errors>
 
-        <div v-if="loading">
-          <h2>{{ str.loading }}</h2>
-        </div>
+        <h2 v-if="loading">{{ str.loading }}</h2>
+        <h2 v-if="noRecommendationsFound">{{ str.noRecommendations }}</h2>
 
         <div class="recommendations">
           <div v-if="!hasErrors && hasRecommendations" v-for="rec in recommendations" class="recommendation">
@@ -40,6 +39,7 @@ export default {
       errors: {},
       str: {
         recommendations: __('Recipe Recommendations'),
+        noRecommendations: __('No recommendations found :('),
         for: __('for'),
         source: __('source'),
         menu: __('back to menu'),
@@ -53,6 +53,9 @@ export default {
     },
     hasRecommendations() {
       return this.recommendations.length > 0
+    },
+    noRecommendationsFound() {
+      return !this.hasErrors && !this.hasRecommendations && !this.loading
     },
   },
   mounted() {

@@ -1,5 +1,6 @@
 const passport = require('passport')
 const Validator = require('Validator')
+const birthdayValidation = require('common/validations/birthday.js')
 
 const validations = {
   post: {
@@ -51,16 +52,25 @@ module.exports = User => ({
       return
     }
 
-    try {
-      const user = await User.findOneAndUpdate(
-        { _id: req.user._id },
-        { birthday: req.body.birthday }
-      )
-      res.json({
-        id: req.user._id,
-      })
-    } catch (err) {
-      res.status(500).send('ERROR')
+    // validate birthday separately
+    const birthday = new Date(req.body.birthday)
+    const errors = birthdayValidation(birthday)
+    if (errors) {
+      res.status(500).json(errors)
+    } else {
+      try {
+        const user = await User.findOneAndUpdate(
+          { _id: req.user._id },
+          { birthday: req.body.birthday }
+        )
+        res.json({
+          id: req.user._id,
+        })
+      } catch (err) {
+        res.status(500).json({
+          error: 'unable to save user',
+        })
+      }
     }
   },
   async get(req, res, next) {
